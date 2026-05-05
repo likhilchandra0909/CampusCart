@@ -1,0 +1,32 @@
+# Root-level ignores
+
+# Dependencies
+node_modules
+client/node_modules
+server/node_modules
+
+# Environment variables — never commit
+.env
+.env.*
+!.env.example
+client/.env
+client/.env.*
+!client/.env.example
+server/.env
+server/.env.*
+!server/.env.example
+
+# Build output
+client/dist
+client/dist-ssr
+
+# Uploaded images — use Cloudinary in production
+server/uploads/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db

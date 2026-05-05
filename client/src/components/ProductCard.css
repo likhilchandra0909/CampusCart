@@ -1,0 +1,188 @@
+/* ============================================================
+   ProductCard.css — 3D Tilt Card
+   ============================================================ */
+
+.product-card-3d {
+  background: var(--surface-container-lowest);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(199, 196, 215, 0.2);
+  box-shadow: 0 4px 20px rgba(70, 72, 212, 0.06);
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.product-card-3d:hover {
+  box-shadow: 0 20px 60px rgba(70, 72, 212, 0.18),
+              0 0 0 1px rgba(70, 72, 212, 0.1);
+  z-index: 10;
+}
+
+/* Shine overlay */
+.card-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  border-radius: 20px;
+  transition: background 0.1s ease;
+}
+
+/* Subtle glow at bottom of image */
+.card-glow {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(70, 72, 212, 0.08), transparent);
+  pointer-events: none;
+}
+
+/* ---- Image container ---- */
+.product-image-container {
+  position: relative;
+  height: 160px; /* h-40 */
+  overflow: hidden;
+  background: linear-gradient(135deg, #f0f1ff, #fdf4ff);
+}
+
+@media (min-width: 640px) {
+  .product-image-container {
+    height: 192px; /* h-48 */
+  }
+}
+
+@media (min-width: 768px) {
+  .product-image-container {
+    height: 224px; /* h-56 */
+  }
+}
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.product-card-3d:hover .product-img {
+  transform: scale(1.08);
+}
+.product-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, rgba(70,72,212,0.06), rgba(124,58,237,0.06));
+}
+
+/* Wishlist / heart button */
+.wishlist-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #ef4444;
+  cursor: pointer;
+  z-index: 4;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+              background 0.2s ease;
+}
+.wishlist-btn:hover {
+  transform: scale(1.25) rotate(-10deg);
+  background: white;
+}
+
+/* Condition badge */
+.condition-badge {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  color: var(--on-surface);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  z-index: 4;
+}
+
+/* ---- Info section ---- */
+.product-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.product-category {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  background: rgba(70, 72, 212, 0.08);
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 99px;
+  width: fit-content;
+}
+.product-title-link { text-decoration: none; color: inherit; }
+.product-title-text {
+  font-size: 0.975rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin: 0.2rem 0;
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+.product-title-link:hover .product-title-text { color: var(--primary); }
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  font-family: var(--font-headline);
+}
+.product-description {
+  font-size: 0.82rem;
+  color: var(--on-surface-variant);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+/* View details button */
+.card-actions { margin-top: 0.5rem; }
+.btn-card-view {
+  display: block;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, rgba(70,72,212,0.08), rgba(96,99,238,0.05));
+  color: var(--primary);
+  border: 1px solid rgba(70,72,212,0.15);
+  transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  text-decoration: none;
+}
+.btn-card-view:hover {
+  background: linear-gradient(135deg, var(--primary), #7c3aed);
+  color: white;
+  border-color: transparent;
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(70,72,212,0.3);
+}

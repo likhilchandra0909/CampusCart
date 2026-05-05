@@ -1,0 +1,14 @@
+# Dependencies
+node_modules
+
+# Environment variables — never commit
+.env
+.env.*
+!.env.example
+
+# Uploaded images — use Cloudinary in production
+uploads/
+
+# Logs
+*.log
+npm-debug.log*
